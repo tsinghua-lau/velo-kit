@@ -1,0 +1,19 @@
+{
+  "extends": ["@antfu"],
+  "rules": {
+    "react/display-name": "off",
+    "react-hooks/rules-of-hooks": "off",
+    "no-sequences": "off",
+    "no-alert": "off",
+    "no-console": ["error", { "allow": ["error"] }],
+    "vue/component-name-in-template-casing": ["error", "kebab-case"],
+    "comma-dangle": "off",
+    "@typescript-eslint/comma-dangle": "off",
+    "brace-style": "off",
+    "@typescript-eslint/brace-style": "off",
+    "vue/quote-props": "off",
+    "curly": "off",
+    "arrow-parens": "off",
+    "operator-linebreak": "off"
+  }
+}
