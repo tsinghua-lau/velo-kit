@@ -7,10 +7,30 @@ export interface DateToChineseOptions {
   add0?: boolean // 是否补0
 }
 
+interface MyObject {
+  t: string
+  value: number | string // assuming value is a number, adjust the type as needed
+  unit: string
+}
+
 /**
- * 日期转换
- * @param {*} dateString
- * @returns
+ * 日期格式化转换
+ * @param {Object} options 配置项
+ * @param {String|Date} options.dateString 日期字符串或Date对象
+ * @param {String} options.format 格式化
+ * @param {Boolean} options.chinese 是否转换为中文
+ * @param {String} options.symbol 分隔符，默认为'-'
+ * @param {Boolean} options.add0 是否补0
+ * @return  {String} 格式化后的日期字符串
+ * @example
+ * dateToChinese({
+ *  dateString: '2021-01-01 12:00:00',
+ * format: 'YYYY-MM-DD HH:mm:ss',
+ * chinese: true,
+ * symbol: '-',
+ * add0: true
+ * })
+ * // 2021年01月01日 12时00分00秒
  */
 export function dateToChinese(options: DateToChineseOptions) {
   const {
@@ -31,8 +51,8 @@ export function dateToChinese(options: DateToChineseOptions) {
   // 创建 Date 对象并解析日期字符串
   const dateObject = new Date(dateString)
 
-  let year, month, day, hours, minutes, seconds
-  year = dateObject.getFullYear()
+  let month, day, hours, minutes, seconds
+  const year = dateObject.getFullYear()
 
   // 获取年、月、日、小时和分钟
   if (!add0) {
@@ -49,28 +69,24 @@ export function dateToChinese(options: DateToChineseOptions) {
     seconds = String(dateObject.getSeconds()).padStart(2, '0')
   }
 
-  let formattedString = ''
-  const arr = []
-  // YYYYY-MM-DD HH-MM-SS
-  if (format?.includes('YYYY'))
-    arr.push({ value: year, unit: chinese ? '年' : symbol })
+  const arrs: MyObject[] = [
+    { t: 'YYYY', value: year, unit: chinese ? '年' : symbol },
+    { t: 'MM', value: month, unit: chinese ? '月' : symbol },
+    { t: 'DD', value: day, unit: chinese ? '日' : '  ' },
+    { t: 'HH', value: hours, unit: chinese ? '时' : ':' },
+    { t: 'mm', value: minutes, unit: chinese ? '分' : ':' },
+    { t: 'ss', value: seconds, unit: chinese ? '秒' : symbol },
+  ]
 
-  if (format?.includes('MM'))
-    arr.push({ value: month, unit: chinese ? '月' : symbol })
+  const arr: MyObject[] = []
 
-  if (format?.includes('DD'))
-    arr.push({ value: day, unit: chinese ? '日' : '  ' })
+  arrs.forEach(it => {
+    if (format.includes(it.t)) {
+      arr.push(it)
+    }
+  })
 
-  if (format?.includes('HH'))
-    arr.push({ value: hours, unit: chinese ? '时' : ':' })
-
-  if (format?.includes('mm'))
-    arr.push({ value: minutes, unit: chinese ? '分' : ':' })
-
-  if (format?.includes('ss'))
-    arr.push({ value: seconds, unit: chinese ? '秒' : symbol })
-
-  formattedString = arr.map(item => item.value + item.unit).join('')
+  let formattedString = arr.map(item => item.value + item.unit).join('')
 
   // 删除最后一个分隔符
   if (!chinese && (format?.includes('mm') || format?.includes('ss')))
