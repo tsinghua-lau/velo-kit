@@ -28,6 +28,7 @@
   "exclude": [
     "es",
     "__test__",
+    "src/main.ts",
     "node_modules",
     "vite.config.ts",
     "vitest.config.ts"
