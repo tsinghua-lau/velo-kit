@@ -10,15 +10,18 @@ export default defineConfig({
   build: {
     target: 'modules',
     minify: true,
+
     rollupOptions: {
       input: 'src/index.ts',
       external: ['vue'],
+
       output: [
         {
           format: 'es',
           dir: path.resolve(__dirname, 'dist'),
           entryFileNames: '[name].js',
           exports: 'named',
+          // 排除目录
           globals: {
             vue: 'Vue',
           },

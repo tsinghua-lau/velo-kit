@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
-import type { DateToChineseOptions } from '../index'
-import { dateToChinese } from '../index'
+import type { DateToChineseOptions } from '../src/Date/index'
+import { dateToChinese } from '../src/Date/index'
 
 describe('dateToChinese function', () => {
   it('should return formatted date string in default format', () => {
