@@ -3,6 +3,7 @@ import { defineConfig } from 'vitepress'
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   title: 'VeloKit',
+  base: '/velo-kit/',
   description: 'A VitePress Site',
   themeConfig: {
     logo: '/logo.svg',
