@@ -1,0 +1,36 @@
+{
+  "compilerOptions": {
+    "target": "ES5",
+    "module": "ESNext",
+    "baseUrl": ".",
+    "sourceMap": true,
+    "moduleResolution": "node",
+    "noImplicitThis": true,
+    "allowJs": false,
+    "jsx": "preserve",
+    "strict": true,
+    "noUnusedLocals": true,
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "removeComments": false,
+    "downlevelIteration": true,
+    "composite": true,
+    "outDir": "dist",
+    "declaration": true,
+    "emitDeclarationOnly": true,
+    "lib": ["ES2020", "DOM"],
+    "types": [],
+    "noImplicitAny": true,
+    "typeRoots": ["./types", "./node_modules/@types"]
+  },
+  "exclude": [
+    "es",
+    "__test__",
+    "src/main.ts",
+    "node_modules",
+    "vite.config.ts",
+    "vitest.config.ts"
+  ]
+}
