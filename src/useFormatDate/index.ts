@@ -69,10 +69,15 @@ export function useFormatDate(options: useFormatDateOptions) {
     seconds = String(dateObject.getSeconds()).padStart(2, '0')
   }
 
-  const arrs: MyObject[] = [
+  // 判断是否需要在“日”后面添加空格
+  const dayUnit = chinese
+    ? `日${format.includes('HH') ? '\u00A0' : ''}`
+    : symbol
+
+  const timeFormat: MyObject[] = [
     { t: 'YYYY', value: year, unit: chinese ? '年' : symbol },
     { t: 'MM', value: month, unit: chinese ? '月' : symbol },
-    { t: 'DD', value: day, unit: chinese ? '日' : '  ' },
+    { t: 'DD', value: day, unit: dayUnit },
     { t: 'HH', value: hours, unit: chinese ? '时' : ':' },
     { t: 'mm', value: minutes, unit: chinese ? '分' : ':' },
     { t: 'ss', value: seconds, unit: chinese ? '秒' : symbol },
@@ -80,7 +85,7 @@ export function useFormatDate(options: useFormatDateOptions) {
 
   const arr: MyObject[] = []
 
-  arrs.forEach(it => {
+  timeFormat.forEach(it => {
     if (format.includes(it.t)) {
       arr.push(it)
     }

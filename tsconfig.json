@@ -27,6 +27,7 @@
   },
   "exclude": [
     "es",
+    "**/*.vue",
     "__test__",
     "src/main.ts",
     "node_modules",

@@ -1,7 +1,7 @@
 {
   "name": "velo-kit",
   "type": "module",
-  "version": "0.0.1-beta.2",
+  "version": "0.0.1-beta.6",
   "private": false,
   "license": "MIT",
   "repository": {
@@ -12,6 +12,11 @@
   "bugs": {
     "url": "https://github.com/tsinghua-lau/velo-kit"
   },
+  "keywords": [
+    "modules",
+    "util",
+    "stdlib"
+  ],
   "exports": {
     ".": {
       "import": "./dist/index.js"
@@ -26,6 +31,7 @@
     "test": "vitest --ui",
     "dev": "vite",
     "build": "npm run clean && vue-tsc && vite build",
+    "publish:npm": "npm run clean && npm run build && npm publish",
     "preview": "vite preview",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",

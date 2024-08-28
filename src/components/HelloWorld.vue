@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { copyToClipboard } from '../../dist/index.js'
+import { useFormatDate } from '../../dist/index.js'
 
 defineProps<{ msg: string }>()
 
@@ -9,7 +9,7 @@ const count = ref(0)
 
 const ok = () => {
   count.value++
-  copyToClipboard('hello world')
+  console.log(useFormatDate({dateString: '2022-01-01 12:00:02',format: 'YYYY/MM/DD HH',chinese: true}))
 }
 </script>
 
