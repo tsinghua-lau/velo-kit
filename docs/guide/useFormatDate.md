@@ -1,15 +1,16 @@
-# formatDate（日期格式化）
-```ts
-import { formatDate } from 'velo-kit'
-import type { formatDateOptions } from 'velo-kit'
+# useFormatDate（日期格式化）
 
-const options = {
+```ts
+import { useFormatDate } from 'velo-kit'
+import type { useFormatDateOptions } from 'velo-kit'
+
+const options: useFormatDateOptions = {
   dateString: new Date('2024-02-27 12:34:56'),
   format: 'YYYY-MM-DD HH-mm-ss',
   chinese: true,
 }
 
-const result = formatDate(options)
+const result = useFormatDate(options)
 // '2024年02月27日12时34分56秒'
 ```
 

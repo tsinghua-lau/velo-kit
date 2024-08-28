@@ -35,7 +35,7 @@ export default defineConfig({
         collapsible: true,
         collapsed: true,
         items: [
-          { text: 'useDebounce', link: '/guide/useFormatDate' },
+          { text: 'useFormatDate', link: '/guide/useFormatDate' },
         ]
       },
       {
