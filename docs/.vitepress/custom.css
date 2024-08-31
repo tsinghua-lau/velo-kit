@@ -27,8 +27,8 @@ body.dark {
     -webkit-text-fill-color: transparent !important;
 }
 
-@media(min-width: 960px){
-.VPNavBar[data-v-84428580]:not(.home){
+@media (min-width: 960px){
+.VPNavBar:not(.home){
     background-color: var(--vp-c-bg) !important;
  }
 }

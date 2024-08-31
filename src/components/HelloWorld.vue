@@ -9,7 +9,7 @@ const count = ref(0)
 
 const ok = () => {
   count.value++
-  console.log(useFormatDate({dateString: '2022-01-01 12:00:02',format: 'YYYY/MM/DD HH',chinese: true}))
+  console.log(useFormatDate({ dateString: '2022-01-01 12:00:02', format: 'YYYY/MM/DD HH', chinese: true }))
 }
 </script>
 

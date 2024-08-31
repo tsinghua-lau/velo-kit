@@ -29,7 +29,7 @@ onMounted(() => {
       loop: props.loop, // 循环播放，默认：true
       autoplay: props.autoplay, // 自动播放 ，默认true
       path: props.path, // 网络路径
-      animationData: Object.keys(props.src).length == 0 ? '' : props.src, // 本地路径，优先级更高
+      animationData: Object.keys(props.src).length === 0 ? '' : props.src, // 本地路径，优先级更高
     })
   }
 })
